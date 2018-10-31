@@ -1,0 +1,55 @@
+{
+	"env": {
+		"browser": true,
+		"node": false,
+		"es6": true,
+		"jest/globals": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:jest/recommended",
+		"jest-enzyme"
+	],
+	"parserOptions": {
+		"ecmaVersion": 8,
+		"ecmaFeatures": {
+			"experimentalObjectRestSpread": true,
+			"jsx": true
+		},
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react",
+		"jest"
+	],
+	"rules": {
+		"no-debugger": "off",
+		"no-console": "off",
+		"indent": [
+			"error",
+			"tab"
+		],
+		"linebreak-style": 0,
+		"quotes": [
+			"error",
+			"single"
+		],
+		"semi": [
+			"error",
+			"always"
+		],
+		"key-spacing": [
+			"error",
+			{
+				"afterColon": true
+			}
+		],
+		"camelcase": "error",
+		"jest/no-disabled-tests": "warn",
+		"jest/no-focused-tests": "error",
+		"jest/no-identical-title": "error",
+		"jest/prefer-to-have-length": "warn",
+		"jest/valid-expect": "error"
+	}
+}
