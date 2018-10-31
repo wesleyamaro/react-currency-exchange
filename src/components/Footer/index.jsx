@@ -4,7 +4,37 @@ import './index.sass';
 const Footer = () => {
 	return (
 		<footer>
-			<p>footer</p>
+			<div className="wrapper">
+				<div className="flex-row">
+					<dl className="footer-box">
+						<dt>Title</dt>
+						<dd>bla bla bla</dd>
+						<dd>bla bla bla</dd>
+						<dd>bla bla bla</dd>
+					</dl>
+
+					<dl className="footer-box">
+						<dt>Title</dt>
+						<dd>bla bla bla</dd>
+						<dd>bla bla bla</dd>
+						<dd>bla bla bla</dd>
+					</dl>
+
+					<dl className="footer-box">
+						<dt>Title</dt>
+						<dd>bla bla bla</dd>
+						<dd>bla bla bla</dd>
+						<dd>bla bla bla</dd>
+					</dl>
+
+					<dl className="footer-box">
+						<dt>Title</dt>
+						<dd>bla bla bla</dd>
+						<dd>bla bla bla</dd>
+						<dd>bla bla bla</dd>
+					</dl>
+				</div>
+			</div>
 		</footer>
 	);
 }
