@@ -1,2 +1,6 @@
 # React currency exchange
-This project is under development
+This is an exercise to convert currency
+
+# Running
+```npm install```
+```npm start```
