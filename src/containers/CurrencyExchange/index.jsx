@@ -28,7 +28,7 @@ class CurrencyExchange extends React.Component {
 	onSubmitConvertCurrency(e) {
 		e.preventDefault();
 
-		const { convertCurrency, lastSync } = this.props;
+		const { convertCurrency, updateCurrency, lastSync } = this.props;
 		const { txtEuro } = this.state;
 
 		const calcTime = lastSync ? (Date.now() - lastSync)/1000 : null;
