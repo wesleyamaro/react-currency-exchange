@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { convertCurrency, updateCurrency } from '../../actions/currencyExchange';
 import { currency} from '../../helpers/currency';
 import { connect } from 'react-redux';
+import CurrencyFormat from 'react-currency-format';
 import './index.sass';
 
 class CurrencyExchange extends React.Component {
@@ -18,14 +19,10 @@ class CurrencyExchange extends React.Component {
 		this.onSubmitConvertCurrency = this.onSubmitConvertCurrency.bind(this);
 	}
 
-	onHandleChange(e) {
-		const reg = /^[0-9]+$/g;
-
-		if(reg.test(e.target.value) || e.target.value === '') {
-			this.setState({
-				[e.target.name]: e.target.value
-			});
-		}
+	onHandleChange(obj) {
+		this.setState({
+			txtEuro: obj.value
+		});
 	}
 
 	onSubmitConvertCurrency(e) {
@@ -62,12 +59,15 @@ class CurrencyExchange extends React.Component {
 				<form onSubmit={this.onSubmitConvertCurrency}>
 					<div className="row col-6 grid-margin">
 						<label>Euro (€):</label>
-						<input
-							type="text"
+
+						<CurrencyFormat
 							placeholder="EUR"
-							onChange={this.onHandleChange}
 							value={txtEuro !== '' ? txtEuro : ''}
 							name="txtEuro"
+							displayType={'input'}
+							thousandSeparator={true}
+							onValueChange={this.onHandleChange}
+							prefix={'€'}
 							required
 						/>
 					</div>
