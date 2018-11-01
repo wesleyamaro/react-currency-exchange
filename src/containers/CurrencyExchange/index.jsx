@@ -78,7 +78,9 @@ class CurrencyExchange extends React.Component {
 					</div>
 
 					<div id="actions">
-						<button disabled={buttonDisabled}>Convert</button>
+						<button disabled={buttonDisabled}>
+							{buttonDisabled ? 'Loading...' : 'Convert'}
+						</button>
 					</div>
 				</form>
 			</section>
