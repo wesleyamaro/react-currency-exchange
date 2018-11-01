@@ -18,7 +18,7 @@ export default function (state = initialState, action = {}) {
 	case UPDATE_CURRENCY:
 		return {
 			...state,
-			exchange: state.usd * action.payload
+			exchange: parseFloat(state.usd) * parseFloat(action.payload)
 		};
 	default:
 		return state;
