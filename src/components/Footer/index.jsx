@@ -6,28 +6,28 @@ const Footer = () => {
 		<footer>
 			<div className="wrapper">
 				<div className="flex-row">
-					<dl className="footer-box">
+					<dl className="footer-box col-3">
 						<dt>Title</dt>
 						<dd>bla bla bla</dd>
 						<dd>bla bla bla</dd>
 						<dd>bla bla bla</dd>
 					</dl>
 
-					<dl className="footer-box">
+					<dl className="footer-box col-3">
 						<dt>Title</dt>
 						<dd>bla bla bla</dd>
 						<dd>bla bla bla</dd>
 						<dd>bla bla bla</dd>
 					</dl>
 
-					<dl className="footer-box">
+					<dl className="footer-box col-3">
 						<dt>Title</dt>
 						<dd>bla bla bla</dd>
 						<dd>bla bla bla</dd>
 						<dd>bla bla bla</dd>
 					</dl>
 
-					<dl className="footer-box">
+					<dl className="footer-box col-3">
 						<dt>Title</dt>
 						<dd>bla bla bla</dd>
 						<dd>bla bla bla</dd>
@@ -37,6 +37,6 @@ const Footer = () => {
 			</div>
 		</footer>
 	);
-}
+};
 
 export default Footer;
