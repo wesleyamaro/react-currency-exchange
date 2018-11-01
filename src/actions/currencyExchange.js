@@ -20,10 +20,5 @@ export function convertCurrency(euroCurrency) {
 }
 
 export function updateCurrency(euroCurrency) {
-	return dispatch => {
-		dispatch({
-			type: UPDATE_CURRENCY,
-			payload: euroCurrency
-		});
-	};
+	return dispatch => dispatch({ type: UPDATE_CURRENCY, payload: euroCurrency });
 }
