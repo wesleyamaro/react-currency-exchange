@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { convertCurrency } from '../../actions/currencyExchange';
+import { convertCurrency, updateCurrency } from '../../actions/currencyExchange';
 import { currency} from '../../helpers/currency';
 import { connect } from 'react-redux';
 import './index.sass';
@@ -34,17 +34,23 @@ class CurrencyExchange extends React.Component {
 		const { convertCurrency, lastSync } = this.props;
 		const { txtEuro } = this.state;
 
-		this.setState({ buttonDisabled: true });
+		const calcTime = lastSync ? (Date.now() - lastSync)/1000 : null;
+		const tenMinutes = 60*10;
 
-		convertCurrency(txtEuro, lastSync)
-			.then(() => {
-				this.setState({ buttonDisabled: false });
-			})
-			.catch(() => {
-				this.setState({ buttonDisabled: false });
-				alert('Something went wrong! Try again!');
-			});
+		if(calcTime === null || calcTime > tenMinutes) {
+			this.setState({ buttonDisabled: true });
 
+			convertCurrency(txtEuro, lastSync)
+				.then(() => {
+					this.setState({ buttonDisabled: false });
+				})
+				.catch(() => {
+					this.setState({ buttonDisabled: false });
+					alert('Something went wrong! Try again!');
+				});
+		} else {
+			updateCurrency(txtEuro);
+		}
 	}
 
 	render() {
@@ -98,7 +104,8 @@ const mapStateToProps = (state) => {
 CurrencyExchange.propTypes = {
 	txtDolar: PropTypes.number,
 	convertCurrency: PropTypes.func,
-	lastSync: PropTypes.number
+	lastSync: PropTypes.number,
+	updateCurrency: PropTypes.func
 };
 
-export default connect(mapStateToProps, { convertCurrency })(CurrencyExchange);
+export default connect(mapStateToProps, { convertCurrency, updateCurrency })(CurrencyExchange);
