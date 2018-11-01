@@ -1,7 +1,9 @@
-import { NEW_CURRENCY } from '../actions/currencyExchange';
+import { NEW_CURRENCY, UPDATE_EXCHANGE } from '../actions/currencyExchange';
 
 const initialState = {
-	dolar: 0
+	exchange: 0,
+	timestamp: null,
+	usd: 0
 };
 
 export default function (state = initialState, action = {}) {
@@ -9,7 +11,14 @@ export default function (state = initialState, action = {}) {
 	case NEW_CURRENCY:
 		return {
 			...state,
-			dolar: action.payload
+			exchange: action.payload.exchange,
+			timestamp: action.payload.timestamp,
+			usd: action.payload.usd
+		};
+	case UPDATE_EXCHANGE:
+		return {
+			...state,
+			exchange: state.usd * action.payload
 		};
 	default:
 		return state;

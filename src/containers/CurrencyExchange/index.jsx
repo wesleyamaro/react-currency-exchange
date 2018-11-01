@@ -31,12 +31,12 @@ class CurrencyExchange extends React.Component {
 	onSubmitConvertCurrency(e) {
 		e.preventDefault();
 
-		const { convertCurrency } = this.props;
+		const { convertCurrency, lastSync } = this.props;
 		const { txtEuro } = this.state;
 
 		this.setState({ buttonDisabled: true });
 
-		convertCurrency(txtEuro)
+		convertCurrency(txtEuro, lastSync)
 			.then(() => {
 				this.setState({ buttonDisabled: false });
 			})
@@ -44,6 +44,7 @@ class CurrencyExchange extends React.Component {
 				this.setState({ buttonDisabled: false });
 				alert('Something went wrong! Try again!');
 			});
+
 	}
 
 	render() {
@@ -87,13 +88,15 @@ class CurrencyExchange extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		txtDolar: state.currencyReducer.dolar
+		txtDolar: state.currencyReducer.exchange,
+		lastSync: state.currencyReducer.timestamp
 	};
 };
 
 CurrencyExchange.propTypes = {
 	txtDolar: PropTypes.number,
-	convertCurrency: PropTypes.func
+	convertCurrency: PropTypes.func,
+	lastSync: PropTypes.number
 };
 
 export default connect(mapStateToProps, { convertCurrency })(CurrencyExchange);
